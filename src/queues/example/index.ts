@@ -1,5 +1,6 @@
 import { connectionCache } from "@/cache-storage";
 import { Queue } from "bullmq";
+import sharedConfigJobsOptions from "@/queues/config";
 
 export enum QueueName {
 	ADD_ORDER = "add-order",
@@ -15,13 +16,7 @@ interface IAddOrderJob {
 export const addOrderQueue = new Queue<IAddOrderJob>(QueueName.ADD_ORDER, {
 	connection: connectionCache,
 	defaultJobOptions: {
-		removeOnComplete: 5,
-		removeOnFail: 5,
-		attempts: 3,
-		backoff: {
-			type: "exponential",
-			delay: 1000,
-		},
+		...sharedConfigJobsOptions,
 	},
 });
 

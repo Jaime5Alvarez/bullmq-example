@@ -1,5 +1,5 @@
 import { Worker } from "bullmq";
-import { QueueName } from "..";
+import { QueueName } from "@/queues/example";
 import { connectionCache } from "@/cache-storage";
 
 const orderWorker = new Worker(
