@@ -9,7 +9,8 @@
 	"scripts": {
 		"dev": "bun run --watch index.ts",
 		"format": "biome format --write .",
-		"lint": "biome lint --write ."
+		"lint": "biome lint --write .",
+		"start:workers": "bun run --watch src/scripts/init-workers.ts"
 	},
 	"peerDependencies": {
 		"typescript": "^5"
