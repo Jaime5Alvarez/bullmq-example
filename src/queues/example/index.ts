@@ -21,13 +21,9 @@ export const addOrderQueue = new Queue<IAddOrderJob>(QueueName.ADD_ORDER, {
 });
 
 export async function addOrderQueueJob(jobId: string, data: IAddOrderJob) {
-	await addOrderQueue.add(
-		QueueName.ADD_ORDER,
-		data,
-		{
-			jobId: jobId,
-		},
-	);
+	await addOrderQueue.add(QueueName.ADD_ORDER, data, {
+		jobId: jobId,
+	});
 }
 
 export async function getAddOrderQueueJob(jobId: string) {
